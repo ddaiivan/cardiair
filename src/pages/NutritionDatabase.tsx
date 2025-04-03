@@ -371,12 +371,13 @@ const NutritionDatabase = () => {
           </>
         )} {/* End of initialAccessAllowed block */}
 
-        {/* Back to Tools Button */}
-        <div className="flex justify-center mt-8 mb-4">
-          <Link to="/tools">
-            <Button variant="outline" className="inline-flex items-center gap-2">
+        {/* Back Button - Updated link and style */}
+        <div className="flex justify-center mt-8 mb-12"> {/* Added mb-12 */}
+          <Link to="/education"> {/* Changed link to /education */}
+            {/* Applied theme colors */}
+            <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
               <ArrowLeft className="h-4 w-4" />
-              Back to Tools
+              Back to Education Resources
             </Button>
           </Link>
         </div>

@@ -238,7 +238,7 @@ const MindMapMaker: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-2 mb-4 items-center flex-wrap">
             <Input
               type="text"
-              placeholder="Enter your topic (e.g., Diabetes Mellitus Type 2)"
+              placeholder="Enter your topic (e.g., Tuberculosis)" // Updated placeholder text
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
               disabled={isLoading}
@@ -335,12 +335,13 @@ const MindMapMaker: React.FC = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Back to Tools Button */}
-      <div className="flex justify-center mt-8 mb-4">
-        <Link to="/tools">
-          <Button variant="outline" className="inline-flex items-center gap-2">
+      {/* Back Button Section - Updated link and style */}
+      <div className="flex justify-center mt-8 mb-12"> {/* Added mb-12 for consistency */}
+        <Link to="/screening"> {/* Changed link to /screening */}
+          {/* Applied theme colors */}
+          <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
             <ArrowLeft className="h-4 w-4" />
-            Back to Tools
+            Back to Screening Tools
           </Button>
         </Link>
       </div>

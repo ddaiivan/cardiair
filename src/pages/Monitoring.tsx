@@ -3,46 +3,38 @@ import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'; // Added Card imports
 import { Button } from '@/components/ui/button'; // Added Button import
 import { Link } from 'react-router-dom'; // Added Link import
-import { Pill, Apple, FileSearch } from 'lucide-react'; // Added necessary icons
+import { Brain, Computer } from 'lucide-react'; // Added necessary icons
 
-// Define the tools specific to the Education page
-const educationToolsData = [
+// Define the tools specific to the Monitoring page
+const monitoringToolsData = [
   {
-    id: 2, // Original ID from Tools.tsx
-    title: 'Drug Reference',
-    description: 'Learn about medications used in cardiorespiratory health.', // Adjusted description
-    icon: Pill,
-    path: '/education/drug-reference', // Updated path
+    id: 6, // Original ID from Tools.tsx
+    title: 'AI Chatbot',
+    description: 'Engage with an AI assistant for monitoring guidance and queries.', // Adjusted description
+    icon: Brain,
+    path: '/monitoring/ai-chatbot', // Updated path
     comingSoon: false
   },
   {
-    id: 3, // Original ID from Tools.tsx
-    title: 'Nutrition Database',
-    description: 'Explore how nutrition impacts heart and lung health.', // Adjusted description
-    icon: Apple,
-    path: '/education/nutrition-database', // Updated path
-    comingSoon: false
-  },
-  {
-    id: 5, // Original ID from Tools.tsx
-    title: 'Clinical Guidelines',
-    description: 'Understand the latest evidence-based practice guidelines.', // Adjusted description
-    icon: FileSearch,
-    path: '/education/clinical-guidelines', // Updated path
+    id: 8, // Original ID from Tools.tsx
+    title: 'Explore GEMINI',
+    description: 'Utilize Google\'s advanced AI for insights related to health monitoring.', // Adjusted description
+    icon: Computer,
+    path: '/monitoring/explore-gemini', // Updated path
     comingSoon: false
   },
 ];
 
-const Education = () => {
+const Monitoring = () => {
   return (
     <Layout>
-      <PageHeader title="Education Resources" subtitle="Information and tools to learn about cardiorespiratory health." /> {/* Updated title/subtitle */}
+      <PageHeader title="Monitoring Tools" subtitle="AI-powered tools to assist in monitoring your cardiorespiratory health." /> {/* Updated subtitle */}
       {/* Updated container div to use theme background */}
       <div className="bg-cardiair-gray-light py-12">
         <div className="container max-w-7xl mx-auto px-4">
           {/* Changed layout to Flexbox for centering */}
           <div className="flex flex-wrap justify-center -m-3"> {/* Added justify-center and negative margin */}
-            {educationToolsData.map((tool) => (
+            {monitoringToolsData.map((tool) => (
               // Added width classes and padding to simulate grid columns and gap
               <div key={tool.id} className="w-full md:w-1/2 lg:w-1/3 p-3"> {/* Added padding */}
                 <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-lg bg-cardiair-white border border-cardiair-gray-light rounded-lg">
@@ -81,11 +73,10 @@ const Education = () => {
               </div> // Close the wrapping div for width/padding
             ))}
           </div>
-          {/* TODO: Add other educational content sections here (articles, videos etc.) */}
         </div>
       </div>
     </Layout>
   );
 };
 
-export default Education;
+export default Monitoring;

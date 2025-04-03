@@ -1003,12 +1003,13 @@ const ExploreGemini: React.FC = () => {
           </>
         {/* REMOVED End of initialAccessAllowed block */}
 
-        {/* Back to Tools Button - Kept at the very bottom */}
-        <div className="flex justify-center pt-6">
-          <Link to="/tools">
-            <Button variant="outline" className="inline-flex items-center gap-2">
+        {/* Back Button Section - Updated link and style */}
+        <div className="flex justify-center pt-6 mb-12"> {/* Added mb-12 for consistency */}
+          <Link to="/monitoring"> {/* Changed link to /monitoring */}
+            {/* Applied theme colors */}
+            <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
               <ArrowLeft className="h-4 w-4" />
-              Back to Tools
+              Back to Monitoring Tools
             </Button>
           </Link>
         </div>

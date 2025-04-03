@@ -67,10 +67,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				medical: {
-					blue: '#0A2463',
-					teal: '#3E92CC',
-					light: '#F8F9FA',
+				// Removed old medical theme
+				cardiair: {
+					red: '#DC2626',        // Tailwind red-600 (Primary Accent)
+					white: '#FFFFFF',       // White (Main Background)
+					gray: {
+						light: '#F3F4F6',  // Tailwind gray-100 (Light Backgrounds/Borders)
+						medium: '#6B7280', // Tailwind gray-500 (Body Text)
+						dark: '#1F2937',   // Tailwind gray-800 (Headings, Dark Accents)
+					}
 				}
 			},
 			borderRadius: {

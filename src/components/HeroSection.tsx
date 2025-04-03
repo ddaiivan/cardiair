@@ -1,7 +1,8 @@
-import React from 'react'; // Import React
-import { ArrowRight, Calculator, Pill, Apple, Library, FileText, Bot, Users, BookOpen, Network, Sparkles, BrainCircuit, ClipboardList, ExternalLink } from 'lucide-react'; // Added ClipboardList and ExternalLink
+import React from 'react';
+// Updated imports for used icons
+import { ArrowRight, Calculator, Pill, Apple, Book, FileSearch, Brain, Computer, AlertTriangle, Network, ClipboardList } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import MedicalNewsSection from './MedicalNewsSection';
+// Removed MedicalNewsSection import
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Added Card imports
 import { Button } from '@/components/ui/button'; // Added Button import
 import {
@@ -14,20 +15,22 @@ import {
 import Autoplay from "embla-carousel-autoplay"; // Import Autoplay plugin
 
 
-// Define tool data array
+// Updated toolsData array for Hero Section Carousel
 const toolsData = [
-  { icon: Calculator, title: "Medical Calculator", description: "Calculate BMI, BSA, GFR, and other important clinical values", link: "/tools/medical-calculator" },
-  { icon: Pill, title: "Drug Reference", description: "Access comprehensive drug information database", link: "/tools/drug-reference" },
-  { icon: Apple, title: "Nutrition Database", description: "Explore nutritional information for various food items", link: "/tools/nutrition-database" },
-  { icon: Library, title: "Disease Library", description: "Comprehensive information on various conditions", link: "/tools/disease-library" },
-  { icon: FileText, title: "Clinical Guidelines", description: "Access the latest medical practice guidelines", link: "/tools/clinical-guidelines" },
-  { icon: Bot, title: "AI Chatbot", description: "Engage with an AI assistant for medical information and queries", link: "/tools/ai-chatbot" },
-  { icon: Users, title: "AI Peer-Review", description: "Get AI-powered feedback on your clinical notes or case studies", link: "/tools/ai-peer-review" },
-  { icon: BookOpen, title: "Learning Resources", description: "Access curated educational materials and resources", link: "/tools/learning-resources" },
-  { icon: Network, title: "Interaction Checker", description: "Check for potential drug interactions", link: "/tools/interaction-checker" },
-  { icon: Sparkles, title: "Explore Gemini", description: "Utilize Google's Gemini for advanced medical insights", link: "/tools/explore-gemini" },
-  { icon: BrainCircuit, title: "AI Mind Map Generator", description: "Visually organize complex medical topics with AI assistance.", link: "/tools/ai-mindmap-generator" }, // Corrected link
-  { icon: ClipboardList, title: "Clinical Scoring Hub", description: "Access various validated clinical scoring calculators.", link: "/tools/clinical-scoring-hub" }, // Added Clinical Scoring Hub
+  // Screening Tools
+  { icon: Calculator, title: "Medical Calculator", description: "Calculate BMI, BSA, GFR, and other clinical values relevant to screening.", link: "/screening/medical-calculator" },
+  { icon: Book, title: "Disease Library", description: "Information on conditions relevant to cardiorespiratory screening.", link: "/screening/disease-library" },
+  { icon: AlertTriangle, title: "Drug Interaction Checker", description: "Check for interactions that might affect screening results or risk.", link: "/screening/interaction-checker" },
+  { icon: Network, title: "AI Mind Map Generator", description: "Visually organize screening concepts or patient risk factors.", link: "/screening/ai-mindmap-generator" },
+  { icon: ClipboardList, title: "Clinical Scoring Hub", description: "Access scoring calculators used in cardiorespiratory risk assessment.", link: "/screening/clinical-scoring-hub" },
+  // Monitoring Tools
+  { icon: Brain, title: "AI Chatbot", description: "Engage with an AI assistant for monitoring guidance and queries.", link: "/monitoring/ai-chatbot" },
+  { icon: Computer, title: "Explore GEMINI", description: "Utilize Google's advanced AI for insights related to health monitoring.", link: "/monitoring/explore-gemini" },
+  // Education Tools
+  { icon: Pill, title: "Drug Reference", description: "Learn about medications used in cardiorespiratory health.", link: "/education/drug-reference" },
+  { icon: Apple, title: "Nutrition Database", description: "Explore how nutrition impacts heart and lung health.", link: "/education/nutrition-database" },
+  { icon: FileSearch, title: "Clinical Guidelines", description: "Understand the latest evidence-based practice guidelines.", link: "/education/clinical-guidelines" },
+  // Note: AI Peer Review and Learning Resources are not included here as they weren't moved to a specific category page.
 ];
 
 // Website Project Images
@@ -44,141 +47,61 @@ const HeroSection = () => {
   );
 
   return (
-    <section className="relative bg-gradient-to-b from-medical-light to-white pt-20"> {/* Removed min-h-screen */}
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-32"> {/* Adjusted padding */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center"> {/* Adjusted gap */}
-          <div className="flex flex-col order-2 md:order-1">
-            {/* Reverted to breakpoint sizes, centered mobile, removed justify */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-medical-blue mb-4 animate-fade-in text-center md:text-left whitespace-nowrap"> 
-              Daivan Febri Juan Setiya
+    // Updated section background to white
+    <section className="relative bg-cardiair-white pt-20">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-32">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left"> {/* Align left on medium screens */}
+            {/* Updated heading color */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cardiair-gray-dark mb-4 animate-fade-in">
+              CardiAIR
             </h1>
-             {/* Reverted to breakpoint sizes, centered mobile, removed justify */}
-            <p className="text-lg sm:text-xl text-gray-600 mb-6 animate-slide-up text-center md:text-left" style={{ animationDelay: '0.2s' }}>
-              Medical Student | Researcher | Beasiswa Unggulan Awardee
+            {/* Updated tagline color */}
+            <p className="text-lg sm:text-xl md:text-2xl text-cardiair-gray-medium mb-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              Your Partner in Cardiorespiratory Health: Screening, Monitoring, and Education
             </p>
-            <div className="h-1 w-32 bg-medical-teal mb-8 animate-slide-up mx-auto md:mx-0" style={{ animationDelay: '0.3s' }}></div> {/* Centered divider on mobile */}
-            {/* Removed fluid font size, added base size, kept justify */}
-            <p className="text-base text-gray-700 mb-8 leading-relaxed animate-slide-up text-justify" style={{ animationDelay: '0.4s' }}> 
-              "A third year undergraduate student majoring in Medicine at Islamic University of Indonesia. 
-              Deeply passionate about acquiring new knowledge and having diverse experiences. 
-              Aiming to enhance the health standards in Indonesia, bring about sustainable change, 
-              and create lasting positive impacts."
+            {/* Updated accent line color and alignment */}
+            <div className="h-1 w-40 bg-cardiair-red mb-8 animate-slide-up mx-auto md:mx-0" style={{ animationDelay: '0.3s' }}></div>
+            {/* Updated paragraph color */}
+            <p className="text-base md:text-lg text-cardiair-gray-medium mb-8 max-w-3xl leading-relaxed animate-slide-up text-justify" style={{ animationDelay: '0.4s' }}>
+              CardiAIR provides accessible tools and resources for early screening, effective monitoring, and comprehensive education on cardiorespiratory diseases. Empowering individuals and healthcare professionals towards better heart and lung health.
             </p>
-            {/* Added items-center for mobile centering */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up items-center" style={{ animationDelay: '0.5s' }}>
-              {/* Reverted to breakpoint padding */}
-              <Link 
-                to="/about" 
-                className="px-4 py-2 sm:px-6 sm:py-3 bg-medical-blue text-white rounded-md hover:bg-opacity-90 transition-all flex items-center justify-center"
+            {/* Updated button styles */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up items-center md:items-start" style={{ animationDelay: '0.5s' }}>
+              <Link
+                to="/screening"
+                className="px-6 py-3 bg-cardiair-red text-cardiair-white rounded-lg hover:bg-opacity-90 transition-all flex items-center justify-center" // Primary button style
               >
-                View Full Profile
+                Start Screening
                 <ArrowRight size={16} className="ml-2" />
               </Link>
-              {/* Reverted to breakpoint padding */}
-              <Link 
-                to="/contact" 
-                className="px-4 py-2 sm:px-6 sm:py-3 border border-medical-blue text-medical-blue rounded-md hover:bg-medical-blue hover:text-white transition-all flex items-center justify-center"
+              <Link
+                to="/education"
+                className="px-6 py-3 border border-cardiair-red text-cardiair-red rounded-lg hover:bg-cardiair-red hover:text-cardiair-white transition-all flex items-center justify-center" // Secondary button style
               >
-                Contact Me
+                Education {/* Changed text from Learn More */}
               </Link>
             </div>
           </div>
+          {/* Added cardio image section */}
           <div className="flex justify-center order-1 md:order-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-             {/* Restored original image size */}
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-              <img
-                src="/profile.jpg"
-                alt="Daivan Febri Juan Setiya"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-medical-blue mb-12">Key Achievements</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Added transition and hover effect classes */}
-          <div className="achievement-card animate-slide-up transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg" style={{ animationDelay: '0.6s' }}>
-            <h3 className="text-xl font-semibold text-medical-blue mb-3 text-center">Gold Medal - IIF & ISIF</h3> {/* Added text-center */}
-            <p className="text-gray-600 text-justify"> {/* Added text-justify */}
-              Gold Medal as 1st Author at the Invention and Innovation Fair (IIF) 2025 and International Science and Invention Fair (ISIF) 2024.
-            </p>
-          </div>
-          {/* Added transition and hover effect classes */}
-          <div className="achievement-card animate-slide-up transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg" style={{ animationDelay: '0.7s' }}>
-            <h3 className="text-xl font-semibold text-medical-blue mb-3 text-center">Beasiswa Unggulan Awardee</h3> {/* Added text-center */}
-            <p className="text-gray-600 text-justify"> {/* Added text-justify */}
-              Recipient of the prestigious scholarship "Beasiswa Unggulan" from the Ministry of Education, Culture, Research, and Technology.
-            </p>
-          </div>
-          {/* Added transition and hover effect classes */}
-          <div className="achievement-card animate-slide-up transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg" style={{ animationDelay: '0.8s' }}>
-            <h3 className="text-xl font-semibold text-medical-blue mb-3 text-center">International Presentations</h3> {/* Added text-center */}
-            <p className="text-gray-600 text-justify"> {/* Added text-justify */}
-              Presented research at multiple international conferences including ENDO 2024 in Seoul, Korea and ICKSH 2024.
-            </p>
+            <img
+              src="/cardio1.jpg" // Updated path to cardio1.jpg
+              alt="Cardiorespiratory Health Illustration"
+              className="w-full max-w-md lg:max-w-xl h-auto object-contain rounded-lg border border-gray-200 shadow-lg" // Increased size on large screens, added mockup styling
+            />
           </div>
         </div>
       </div>
 
-      {/* Website Project Section */}
-      <section className="py-12 md:py-20 lg:py-24 bg-muted">
-        <div className="container px-4 md:px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-medical-blue mb-12">
-            Website Project
-          </h2>
-          <Card className="max-w-4xl mx-auto">
-            <CardHeader>
-              <CardTitle>TBControl Platform</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Carousel 
-                className="w-full mb-6"
-                plugins={[websiteAutoplayPlugin.current]} // Use separate plugin instance
-                opts={{ // Add options
-                  align: "start",
-                  loop: true,
-                }}
-                onMouseEnter={() => websiteAutoplayPlugin.current.stop()} // Restore hover handler with correct instance
-                onMouseLeave={() => websiteAutoplayPlugin.current.play()} // Restore hover handler with correct instance
-              >
-                <CarouselContent>
-                  {websiteImages.map((src, index) => (
-                    <CarouselItem key={index}>
-                      <img
-                        src={src}
-                        alt={`TBControl Screenshot ${index + 1}`}
-                        className="w-full h-auto object-contain rounded-md border"
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-10" />
-                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-10" />
-              </Carousel>
-              <p className="text-muted-foreground text-justify">
-                Developed TBControl, a dedicated web platform aimed at increasing Tuberculosis awareness and providing accessible support. Key features include comprehensive TB information, an interactive symptom checker, details on screening options, advanced tools, and a health facilities directory, all designed to help users 'Know the Symptoms, Stop the Spread'.
-              </p>
-              <div className="mt-4 flex justify-center"> {/* Add flex and justify-center */}
-                <a href="https://tbcontrol.daivanlabs.site/" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline">
-                    Visit Website
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      {/* Removed Key Achievements and Website Project sections */}
 
-      {/* START: Medical Tools Preview Section */}
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-medical-blue mb-12">Explore Medical Tools</h2>
-        
-        {/* Carousel Implementation */}
+      {/* START: CardiAIR Tools & Resources Section - Updated background and heading color */}
+      <div className="bg-cardiair-gray-light py-16"> {/* Added light gray background */}
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-cardiair-gray-dark mb-12">CardiAIR Tools & Resources</h2>
+
+          {/* Carousel Implementation */}
         <Carousel
           plugins={[toolsAutoplayPlugin.current]} // Use tools plugin instance
           className="w-full"
@@ -197,14 +120,18 @@ const HeroSection = () => {
                   {/* Tool Card Structure (copied from original grid) */}
                   <Link 
                     to={tool.link} 
-                    className="tool-card group block h-full p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out transform hover:-translate-y-1 flex flex-col" // Added h-full and flex flex-col
+                    // Updated Tool Card styles
+                    className="tool-card group block h-full p-6 bg-cardiair-white rounded-lg border border-cardiair-gray-light shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1 flex flex-col"
                   >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-medical-light text-medical-blue mb-4 group-hover:bg-medical-blue group-hover:text-white transition-colors flex-shrink-0"> {/* Added flex-shrink-0 */}
+                    {/* Updated icon background/color */}
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-cardiair-red/10 text-cardiair-red mb-4 group-hover:bg-cardiair-red group-hover:text-cardiair-white transition-colors flex-shrink-0">
                       <tool.icon size={24} />
                     </div>
-                    <h3 className="text-lg font-semibold text-medical-blue mb-2">{tool.title}</h3>
-                    <p className="text-sm text-gray-600 mb-4 text-justify flex-grow">{tool.description}</p> {/* Added flex-grow */}
-                    <span className="mt-auto inline-flex items-center px-4 py-2 bg-medical-blue text-white text-sm font-medium rounded-md group-hover:bg-opacity-90 transition-colors self-start"> {/* Added mt-auto and self-start */}
+                    {/* Updated title and description colors */}
+                    <h3 className="text-lg font-semibold text-cardiair-gray-dark mb-2">{tool.title}</h3>
+                    <p className="text-sm text-cardiair-gray-medium mb-4 text-justify flex-grow">{tool.description}</p>
+                    {/* Updated Launch Tool button style */}
+                    <span className="mt-auto inline-flex items-center px-4 py-2 bg-cardiair-red text-cardiair-white text-sm font-medium rounded-lg group-hover:bg-opacity-90 transition-colors self-start">
                       Launch Tool
                       <ArrowRight size={16} className="ml-2" />
                     </span>
@@ -217,15 +144,14 @@ const HeroSection = () => {
           <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 hidden lg:inline-flex" />
         </Carousel>
 
-        {/* Add the login message below the carousel */}
-        <p className="text-center font-bold text-lg text-[#0A2463] mt-8">Ready to explore? Login to access all tools.</p> {/* Increased margin-top */}
-        {/* Removed the "View All Tools" button container as all tools are now displayed */}
+          {/* Add the login message below the carousel - Updated color */}
+          <p className="text-center font-bold text-lg text-cardiair-gray-dark mt-8">Ready to explore? Login to access all tools.</p>
+          {/* Removed the "View All Tools" button container as all tools are now displayed */}
+        </div>
       </div>
-      {/* END: Medical Tools Preview Section */}
+      {/* END: CardiAIR Tools & Resources Section */}
 
-      {/* START: Medical News Section */}
-      <MedicalNewsSection />
-      {/* END: Medical News Section */}
+      {/* Removed Medical News Section */}
     </section>
   );
 };

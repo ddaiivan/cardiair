@@ -411,11 +411,12 @@ const DiseaseLibrary = () => {
 
       </div>
 
-      {/* Back Button Section */}
+      {/* Back Button Section - Updated link and style */}
       <div className="flex justify-center mt-8 mb-12">
-        <Link to="/tools">
-          <Button variant="outline">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Tools
+        <Link to="/screening"> {/* Changed link to /screening */}
+          {/* Applied theme colors */}
+          <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Screening Tools
           </Button>
         </Link>
       </div>

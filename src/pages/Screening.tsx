@@ -3,46 +3,62 @@ import PageHeader from '@/components/PageHeader';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'; // Added Card imports
 import { Button } from '@/components/ui/button'; // Added Button import
 import { Link } from 'react-router-dom'; // Added Link import
-import { Pill, Apple, FileSearch } from 'lucide-react'; // Added necessary icons
+import { Calculator, Book, Network, ClipboardList, AlertTriangle } from 'lucide-react'; // Added necessary icons
 
-// Define the tools specific to the Education page
-const educationToolsData = [
+// Define the tools specific to the Screening page
+const screeningToolsData = [
   {
-    id: 2, // Original ID from Tools.tsx
-    title: 'Drug Reference',
-    description: 'Learn about medications used in cardiorespiratory health.', // Adjusted description
-    icon: Pill,
-    path: '/education/drug-reference', // Updated path
+    id: 1, // Original ID from Tools.tsx
+    title: 'Medical Calculator',
+    description: 'Calculate BMI, BSA, GFR, and other important clinical values relevant to screening.',
+    icon: Calculator,
+    path: '/screening/medical-calculator', // Updated path
     comingSoon: false
   },
   {
-    id: 3, // Original ID from Tools.tsx
-    title: 'Nutrition Database',
-    description: 'Explore how nutrition impacts heart and lung health.', // Adjusted description
-    icon: Apple,
-    path: '/education/nutrition-database', // Updated path
+    id: 4, // Original ID from Tools.tsx
+    title: 'Disease Library',
+    description: 'Information on conditions relevant to cardiorespiratory screening.',
+    icon: Book,
+    path: '/screening/disease-library', // Updated path
     comingSoon: false
   },
   {
-    id: 5, // Original ID from Tools.tsx
-    title: 'Clinical Guidelines',
-    description: 'Understand the latest evidence-based practice guidelines.', // Adjusted description
-    icon: FileSearch,
-    path: '/education/clinical-guidelines', // Updated path
+    id: 9, // Original ID from Tools.tsx
+    title: 'Drug Interaction Checker',
+    description: 'Check for interactions that might affect screening results or risk.',
+    icon: AlertTriangle,
+    path: '/screening/interaction-checker', // Updated path
+    comingSoon: false
+  },
+  {
+    id: 11, // Original ID from Tools.tsx
+    title: 'AI Mind Map Generator',
+    description: 'Visually organize screening concepts or patient risk factors.',
+    icon: Network,
+    path: '/screening/ai-mindmap-generator', // Updated path
+    comingSoon: false
+  },
+  {
+    id: 12, // Original ID from Tools.tsx
+    title: 'Clinical Scoring Hub',
+    description: 'Access scoring calculators used in cardiorespiratory risk assessment.',
+    icon: ClipboardList,
+    path: '/screening/clinical-scoring-hub', // Updated path
     comingSoon: false
   },
 ];
 
-const Education = () => {
+const Screening = () => {
   return (
     <Layout>
-      <PageHeader title="Education Resources" subtitle="Information and tools to learn about cardiorespiratory health." /> {/* Updated title/subtitle */}
+      <PageHeader title="Screening Tools" subtitle="Tools and resources for cardiorespiratory screening and risk assessment." />
       {/* Updated container div to use theme background */}
       <div className="bg-cardiair-gray-light py-12">
         <div className="container max-w-7xl mx-auto px-4">
-          {/* Changed layout to Flexbox for centering */}
+          {/* Changed layout to Flexbox for centering last row */}
           <div className="flex flex-wrap justify-center -m-3"> {/* Added justify-center and negative margin */}
-            {educationToolsData.map((tool) => (
+            {screeningToolsData.map((tool) => (
               // Added width classes and padding to simulate grid columns and gap
               <div key={tool.id} className="w-full md:w-1/2 lg:w-1/3 p-3"> {/* Added padding */}
                 <Card className="flex flex-col h-full transition-all duration-300 hover:shadow-lg bg-cardiair-white border border-cardiair-gray-light rounded-lg">
@@ -81,11 +97,10 @@ const Education = () => {
               </div> // Close the wrapping div for width/padding
             ))}
           </div>
-          {/* TODO: Add other educational content sections here (articles, videos etc.) */}
         </div>
       </div>
     </Layout>
   );
 };
 
-export default Education;
+export default Screening;

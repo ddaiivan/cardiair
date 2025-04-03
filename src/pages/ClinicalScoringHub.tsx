@@ -84,12 +84,13 @@ const ClinicalScoringHub: React.FC = () => {
         {/* Placeholder for other calculators */}
       </div>
 
-      {/* Back to Tools Button */}
+      {/* Back Button Section - Updated link and style */}
       <div className="mt-12 mb-8 flex justify-center">
-        <Link to="/tools">
-          <Button variant="outline" className="inline-flex items-center gap-2">
+        <Link to="/screening"> {/* Changed link to /screening */}
+          {/* Applied theme colors */}
+          <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
             <ArrowLeft className="h-4 w-4" />
-            Back to Tools
+            Back to Screening Tools
           </Button>
         </Link>
       </div>

@@ -137,10 +137,10 @@ const SignUp = () => {
                     </div>
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Submit Button - Updated theme colors */}
                   <Button
                     type="submit"
-                    className="w-full bg-medical-teal hover:bg-medical-blue"
+                    className="w-full bg-cardiair-red text-cardiair-white hover:bg-opacity-90" // Apply theme
                     disabled={isLoading}
                   >
                     {isLoading ? 'Creating Account...' : 'Sign Up'}
@@ -148,9 +148,9 @@ const SignUp = () => {
                 </form>
               </CardContent>
               <CardFooter className="flex flex-col space-y-2">
-                <div className="text-sm text-center">
+                <div className="text-sm text-center text-cardiair-gray-medium"> {/* Updated text color */}
                   Already have an account?{' '}
-                  <Link to="/signin" className="text-medical-teal hover:underline">
+                  <Link to="/signin" className="text-cardiair-red hover:underline"> {/* Updated link color */}
                     Sign in
                   </Link>
                 </div>

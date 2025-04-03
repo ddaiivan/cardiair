@@ -7,18 +7,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import Education from "./pages/Education";
-import Honors from "./pages/Honors";
-import Research from "./pages/Research";
-import Experience from "./pages/Experience";
-import Certifications from "./pages/Certifications";
+import Screening from "./pages/Screening"; // Added import
+import Monitoring from "./pages/Monitoring"; // Added import
+import Education from "./pages/Education"; // Added import (re-added)
+// Removed Honors import
+// Removed Research import
+// Removed Experience import
+// Removed Certifications import
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Tools from "./pages/Tools";
+// Removed Tools import
 import MedicalCalculator from "./pages/MedicalCalculator";
-import DrugReference from "./pages/DrugReference"; 
+import DrugReference from "./pages/DrugReference";
 import NutritionDatabase from "./pages/NutritionDatabase"; // Import NutritionDatabase
 import DiseaseLibrary from "./pages/DiseaseLibrary"; // Import DiseaseLibrary
 import ClinicalGuidelines from "./pages/ClinicalGuidelines"; // Import ClinicalGuidelines
@@ -49,160 +51,155 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<Layout><About /></Layout>} />
-            <Route path="/education" element={<Layout><Education /></Layout>} />
-            <Route path="/honors" element={<Layout><Honors /></Layout>} />
-            <Route path="/research" element={<Layout><Research /></Layout>} />
-            <Route path="/experience" element={<Layout><Experience /></Layout>} />
-            <Route path="/certifications" element={<Layout><Certifications /></Layout>} />
+            <Route path="/screening" element={<Screening />} /> {/* Added route */}
+            <Route path="/monitoring" element={<Monitoring />} /> {/* Added route */}
+            <Route path="/education" element={<Education />} /> {/* Added route (re-added) */}
+            {/* Removed /honors route */}
+            {/* Removed /research route */}
+            {/* Removed /experience route */}
+            {/* Removed /certifications route */}
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route 
-              path="/tools" 
+            {/* Removed /tools route */}
+            {/* Updated route for Medical Calculator */}
+            <Route
+              path="/screening/medical-calculator" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><Tools /></Layout> {/* Wrap Tools in Layout */}
+                  <MedicalCalculator /> {/* Removed Layout */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add route for Medical Calculator */}
-            <Route 
-              path="/tools/medical-calculator" 
+            {/* Updated route for Drug Reference */}
+            <Route
+              path="/education/drug-reference" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><MedicalCalculator /></Layout>
+                  <DrugReference /> {/* Removed Layout */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add route for Drug Reference */}
-            <Route 
-              path="/tools/drug-reference" 
+            {/* Updated route for Nutrition Database */}
+            <Route
+              path="/education/nutrition-database" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><DrugReference /></Layout>
+                  <NutritionDatabase /> {/* Removed Layout */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add route for Nutrition Database */}
-            <Route 
-              path="/tools/nutrition-database" 
+            {/* Updated route for Disease Library */}
+            <Route
+              path="/screening/disease-library" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><NutritionDatabase /></Layout>
-                </ProtectedRoute>
-              } 
-            />
-            {/* Add route for Disease Library */}
-            <Route 
-              path="/tools/disease-library" 
-              element={
-                <ProtectedRoute>
-                  <Layout><DiseaseLibrary /></Layout>
+                  <DiseaseLibrary /> {/* Removed Layout */}
                  </ProtectedRoute>
                } 
              />
-             {/* Add route for Clinical Guidelines */}
-             <Route 
-               path="/tools/clinical-guidelines" 
-               element={
-                 <ProtectedRoute>
-                   <Layout><ClinicalGuidelines /></Layout>
-                 </ProtectedRoute>
-               }
-             />
-             {/* Add route for Explore GEMINI */}
+             {/* Updated route for Clinical Guidelines */}
              <Route
-               path="/tools/explore-gemini"
+               path="/education/clinical-guidelines" // Updated path
                element={
                  <ProtectedRoute>
-                   <Layout><ExploreGemini /></Layout>
+                   <ClinicalGuidelines /> {/* Removed Layout */}
                  </ProtectedRoute>
                }
              />
-             {/* Add route for AI Chatbot */}
-             <Route 
-               path="/tools/ai-chatbot"
+             {/* Updated route for Explore GEMINI */}
+             <Route
+               path="/monitoring/explore-gemini" // Updated path
                element={
                  <ProtectedRoute>
-                  <Layout><AIChatbot /></Layout>
+                   <ExploreGemini /> {/* Removed Layout */}
+                 </ProtectedRoute>
+               }
+             />
+             {/* Updated route for AI Chatbot */}
+             <Route
+               path="/monitoring/ai-chatbot" // Updated path
+               element={
+                 <ProtectedRoute>
+                  <AIChatbot /> {/* Removed Layout */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add route for AI Peer-Review */}
-            <Route 
-              path="/tools/ai-peer-review" 
+            {/* Keep AI Peer-Review under /tools for now, or decide where it belongs */}
+            <Route
+              path="/tools/ai-peer-review"
               element={
                 <ProtectedRoute>
-                  <Layout><AIPeerReview /></Layout>
+                  <Layout><AIPeerReview /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add route for Learning Resources */}
-            <Route 
-              path="/tools/learning-resources" 
+            {/* Keep Learning Resources under /tools for now, or move to /education */}
+            <Route
+              path="/tools/learning-resources"
               element={
                 <ProtectedRoute>
-                  <Layout><LearningResources /></Layout>
+                  <Layout><LearningResources /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               } 
             />
-            {/* Add routes for specific learning resources */}
-            <Route 
-              path="/tools/learning-resources/coursera" 
+            {/* Keep specific learning resources under /tools for now, or move to /education */}
+            <Route
+              path="/tools/learning-resources/coursera"
               element={
                 <ProtectedRoute>
-                  <Layout><LearningCoursera /></Layout>
+                  <Layout><LearningCoursera /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               } 
             />
-            <Route 
-              path="/tools/learning-resources/osmosis" 
+            <Route
+              path="/tools/learning-resources/osmosis"
               element={
                 <ProtectedRoute>
-                  <Layout><LearningOsmosis /></Layout>
+                  <Layout><LearningOsmosis /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               } 
             />
-            <Route 
-              path="/tools/learning-resources/uptodate" 
+            <Route
+              path="/tools/learning-resources/uptodate"
               element={
                 <ProtectedRoute>
-                  <Layout><LearningUpToDate /></Layout>
+                  <Layout><LearningUpToDate /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               } 
             />
-            <Route 
-              path="/tools/learning-resources/other" 
+            <Route
+              path="/tools/learning-resources/other"
               element={
                 <ProtectedRoute>
-                  <Layout><LearningOther /></Layout>
+                  <Layout><LearningOther /></Layout> {/* Keep Layout if it's a top-level tool */}
                 </ProtectedRoute>
               }
             />
-            {/* Add route for Interaction Checker */}
+            {/* Updated route for Interaction Checker */}
             <Route
-              path="/tools/interaction-checker"
+              path="/screening/interaction-checker" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><InteractionChecker /></Layout>
+                  <InteractionChecker /> {/* Removed Layout */}
                  </ProtectedRoute>
                }
              />
-             {/* Add route for AI Mind Map Generator */}
+             {/* Updated route for AI Mind Map Generator */}
              <Route
-               path="/tools/ai-mindmap-generator"
+               path="/screening/ai-mindmap-generator" // Updated path
                element={
                  <ProtectedRoute>
-                   <Layout><MindMapMaker /></Layout>
+                   <MindMapMaker /> {/* Removed Layout */}
                  </ProtectedRoute>
                }
              />
-             {/* Add route for Clinical Scoring Hub */}
+             {/* Updated route for Clinical Scoring Hub */}
             <Route
-              path="/tools/clinical-scoring-hub"
+              path="/screening/clinical-scoring-hub" // Updated path
               element={
                 <ProtectedRoute>
-                  <Layout><ClinicalScoringHub /></Layout>
+                  <ClinicalScoringHub /> {/* Removed Layout */}
                  </ProtectedRoute>
                }
              />

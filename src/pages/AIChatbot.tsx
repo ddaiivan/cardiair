@@ -90,12 +90,13 @@ const AIChatbot = () => {
             </iframe>
          )}
 
-          {/* Back to Tools Button */}
-          <div className="flex justify-center mt-8 mb-4"> {/* Added mb-4 for spacing above footer */}
-            <Link to="/tools">
-              <Button variant="outline" className="flex items-center gap-2">
+          {/* Back Button Section - Updated link and style */}
+          <div className="flex justify-center mt-8 mb-12"> {/* Added mb-12 for consistency */}
+            <Link to="/monitoring"> {/* Changed link to /monitoring */}
+              {/* Applied theme colors */}
+              <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
                 <ArrowLeft size={16} />
-                Back to Tools
+                Back to Monitoring Tools
               </Button>
             </Link>
           </div>

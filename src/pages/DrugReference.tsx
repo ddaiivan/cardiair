@@ -364,12 +364,13 @@ This tool **DOES NOT substitute for professional medical advice, diagnosis, or t
             </>
           )} {/* End of initialAccessAllowed block */}
 
-          {/* Back Button */}
-          <div className="mt-12 flex justify-center">
-            <Link to="/tools">
-              <Button variant="outline" className="flex items-center gap-2">
+          {/* Back Button - Updated link and style */}
+          <div className="mt-12 flex justify-center mb-12"> {/* Added mb-12 */}
+            <Link to="/education"> {/* Changed link to /education */}
+              {/* Applied theme colors */}
+              <Button variant="outline" className="flex items-center gap-2 border-cardiair-red text-cardiair-red hover:bg-cardiair-red hover:text-cardiair-white">
                 <ArrowLeft size={16} />
-                Back to Tools
+                Back to Education Resources
               </Button>
             </Link>
           </div>
