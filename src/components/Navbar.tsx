@@ -16,13 +16,13 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { UpgradePlanDialog } from './UpgradePlanDialog';
+// Removed UpgradePlanDialog import
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // Mobile menu state
-  const [isUpgradeDialogOpen, setIsUpgradeDialogOpen] = useState(false); // State for dialog
+  // Removed isUpgradeDialogOpen state
   const location = useLocation();
-  const { user, level, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth(); // Removed level
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -43,15 +43,10 @@ const Navbar = () => {
     logout();
   };
 
-  const handleUpgradeClick = useCallback(async () => {
-    if (!user) return;
-    console.log(`Upgrade clicked for user: ${user.id}, email: ${user.email}`);
-    setIsUpgradeDialogOpen(true);
-  }, [user, toast]);
-
+  // Removed handleUpgradeClick function
 
   return (
-    <> {/* Wrap with Fragment to include Dialog */}
+    // Removed Fragment wrapper as Dialog is gone
     <header className="fixed top-0 left-0 right-0 z-50 bg-cardiair-white shadow-md py-3">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -92,9 +87,7 @@ const Navbar = () => {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      {/* Removed Tools link from dropdown */}
-                      {/* Removed Upgrade Plan item temporarily */}
-                      {/* Ensure separator only shows if needed */}
+                      {/* Removed commented out Upgrade Plan item */}
                       <DropdownMenuItem onClick={handleLogout} className="flex items-center gap-2 cursor-pointer text-cardiair-red focus:text-cardiair-red focus:bg-red-50">
                         <LogOut className="h-4 w-4" />
                         <span>Sign Out</span>
@@ -167,7 +160,7 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <div className="space-y-2">
                   <div className="text-sm text-cardiair-gray-medium px-2">Signed in as {user?.email || 'User'}</div>
-                  {/* Removed Upgrade Plan button temporarily */}
+                  {/* Removed commented out Upgrade Plan button */}
                   <button
                     onClick={handleLogout}
                     className="w-full flex items-center gap-2 text-left py-2 text-cardiair-red hover:bg-red-50 hover:text-cardiair-red"
@@ -208,9 +201,7 @@ const Navbar = () => {
         </nav>
       )}
     </header>
-    {/* Render the Dialog component */}
-    <UpgradePlanDialog open={isUpgradeDialogOpen} onOpenChange={setIsUpgradeDialogOpen} />
-    </>
+    // Removed UpgradePlanDialog instance
   );
 };
 

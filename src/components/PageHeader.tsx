@@ -12,8 +12,8 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
         {/* Updated title color */}
         <h1 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in text-cardiair-gray-dark">{title}</h1>
         {subtitle && (
-          // Updated subtitle color
-          <p className="text-xl md:text-2xl text-cardiair-gray-medium max-w-3xl animate-slide-up">
+          // Updated subtitle color and added justification
+          <p className="text-xl md:text-2xl text-cardiair-gray-medium max-w-3xl animate-slide-up text-justify">
             {subtitle}
           </p>
         )}

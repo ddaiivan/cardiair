@@ -416,7 +416,7 @@ const MedicalCalculator = () => {
         <Alert variant="destructive" className="mb-8 bg-red-50 border-red-500 text-red-800">
           <AlertTriangle className="h-4 w-4 !text-red-800" />
           <AlertTitle className="font-bold">Disclaimer</AlertTitle>
-          <AlertDescription>
+          <AlertDescription className="text-justify">
             These calculators are intended for informational and educational purposes only and do not substitute for professional medical diagnosis, advice, or treatment. Normal values and risk interpretations can vary. Always consult with a qualified healthcare professional for accurate interpretation and recommendations. Framingham Risk Score calculations are based on specific population data and may have limitations.
           </AlertDescription>
         </Alert>
